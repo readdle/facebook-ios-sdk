@@ -141,12 +141,7 @@ extension Target {
 
     static let core = target(
         name: .core,
-        dependencies: [.aem, .Prefixed.basics, .Prefixed.core],
-        linkerSettings: [
-            .cPlusPlusLibrary,
-            .zLibrary,
-            .accelerateFramework,
-        ]
+        dependencies: [.aem, .Prefixed.basics, .Prefixed.core]
     )
 
     static let login = target(name: .login, dependencies: [.core, .Prefixed.login])
@@ -200,12 +195,6 @@ extension Target.Dependency {
         static let share = byName(name: .Prefixed.share)
         static let gaming = byName(name: .Prefixed.gaming)
     }
-}
-
-extension LinkerSetting {
-    static let cPlusPlusLibrary = linkedLibrary("c++")
-    static let zLibrary = linkedLibrary("z")
-    static let accelerateFramework = linkedFramework("Accelerate")
 }
 
 enum BinarySource {
